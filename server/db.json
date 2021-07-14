@@ -1,0 +1,31 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Member_1",
+      "username": "member1",
+      "email": "member1@mail.com",
+      "phone": "1234567",
+      "address": "member1 address",
+      "description": "member1 description"
+    },
+    {
+      "id": 2,
+      "name": "Member_2",
+      "username": "member2",
+      "email": "member2@mail.com",
+      "phone": "1234567",
+      "address": "member2 address",
+      "description": "member2 description"
+    },
+    {
+      "id": 3,
+      "name": "Member_3",
+      "username": "member3",
+      "email": "member3@mail.com",
+      "phone": "1234567",
+      "address": "member3 address",
+      "description": "member3 description"
+    }
+  ]
+}
