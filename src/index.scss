@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+html {
+  /* it will convert 1rem = 10px, so we can write fraction number easily 
+  such as 1.5rem means - 15px */
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;
+  color: #a2abad;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  padding: 4rem; /* can vary according to your requirements */
+}
