@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.scss';
 
-const Navigation = () => (
+const Navigation: React.FC = () => (
   <nav className={styles.navigation}>
     <ul>
       <li>

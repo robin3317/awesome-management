@@ -1,10 +1,7 @@
-import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import BaseLayout from '../components/BaseLayout/BaseLayout';
 
-class EditMember extends React.Component<RouteComponentProps<any>> {
-  public render() {
-    return <h1>Edit page</h1>;
-  }
-}
+const EditMember: React.FC = () => (
+  <BaseLayout title="Edit Member">Edit Page</BaseLayout>
+);
 
-export default withRouter(EditMember);
+export default EditMember;

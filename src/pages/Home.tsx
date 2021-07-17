@@ -1,16 +1,6 @@
-import * as React from 'react';
-import Navigation from '../components/Navigation/Navigation';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import BaseLayout from '../components/BaseLayout/BaseLayout';
 import styles from './Home.module.scss';
 
-class Home extends React.Component<RouteComponentProps<any>> {
-  public render() {
-    return (
-      <div className={styles.home}>
-        <Navigation />
-      </div>
-    );
-  }
-}
+const Home: React.FC = () => <BaseLayout title="Home">Hello</BaseLayout>;
 
-export default withRouter(Home);
+export default Home;

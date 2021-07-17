@@ -1,10 +1,7 @@
-import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import BaseLayout from '../components/BaseLayout/BaseLayout';
 
-class AddMember extends React.Component<RouteComponentProps<any>> {
-  public render() {
-    return <h1>Create page</h1>;
-  }
-}
+const AddMember: React.FC = () => (
+  <BaseLayout title="Add Member">Create Page</BaseLayout>
+);
 
-export default withRouter(AddMember);
+export default AddMember;
