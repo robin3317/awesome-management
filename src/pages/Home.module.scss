@@ -1,3 +1,11 @@
 .home {
-
+  .table {
+    width: 100%;
+    text-align: center;
+    &Body {
+      td {
+        padding-top: 2rem;
+      }
+    }
+  }
 }

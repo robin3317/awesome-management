@@ -1,14 +1,24 @@
 import { ActionType } from '../actions-type/member.actions-type';
 import { Action } from '../actions/member.actions';
 
+export interface IData {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  phone: string;
+  description?: string;
+  address: string;
+}
+
 interface IMemberState {
   loading: boolean;
   error: string | null;
-  data: object[];
+  data: Array<IData>;
 }
 
 const initialState = {
-  loading: false,
+  loading: true,
   error: null,
   data: [],
 };
@@ -21,25 +31,15 @@ const memberReducer = (
     case ActionType.SET_CURRENT_MEMBERS:
       return {
         ...state,
-      };
-    case ActionType.ADD_MEMBER:
-      return {
-        ...state,
+        data: action.payload,
         loading: true,
       };
 
-    case ActionType.ADD_MEMBER_SUCCESS:
+    case ActionType.SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.payload,
-      };
-
-    case ActionType.ADD_MEMBER_ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
+        error: null,
       };
 
     default:
