@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Dispatch } from 'redux';
 import { ActionType } from '../actions-type/member.actions-type';
 import { Action } from '../actions/member.actions';
@@ -31,6 +32,49 @@ export const setCurrentMembers = () => {
   };
 };
 
+export const deleteMember = (memberId: number | string) => {
+  return async (dispatch: Dispatch<Action>) => {
+    try {
+      await axios.delete(`http://localhost:5000/members/${memberId}`);
+
+      dispatch({
+        type: ActionType.DELETE_MEMBER,
+        payload: memberId,
+      });
+
+      // This setTimeout is just for development visualization
+      // [TODO]: REMOVE setTimeout before production deployment
+      setTimeout(() => {
+        dispatch({
+          type: ActionType.SUCCESS,
+        });
+        toast('Successfully delete member', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+        });
+      }, 1000);
+    } catch (error) {
+      dispatch({
+        type: ActionType.ERROR,
+        payload: `${error.message}, Please refresh the page and try again!`,
+      });
+      toast(error.message, {
+        type: 'error',
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+      });
+    }
+  };
+};
+
 export const addMember = (memberData: IData) => {
   return async (dispatch: Dispatch<Action>) => {
     try {
@@ -47,11 +91,19 @@ export const addMember = (memberData: IData) => {
         dispatch({
           type: ActionType.SUCCESS,
         });
+        toast('Successfully added member', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+        });
       }, 1000);
     } catch (error) {
       dispatch({
         type: ActionType.ERROR,
-        payload: error.message,
+        payload: `${error.message}, Please refresh the page and try again!`,
       });
     }
   };

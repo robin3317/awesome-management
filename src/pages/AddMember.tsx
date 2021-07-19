@@ -3,7 +3,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import BaseLayout from '../components/BaseLayout/BaseLayout';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypeSelector';
-import 'react-toastify/dist/ReactToastify.css';
 import styles from './AddMember.module.scss';
 
 interface IFormSubmitData {
@@ -70,14 +69,6 @@ const AddMember: React.FC = () => {
     addMember(formData);
 
     if (!error && !loading) {
-      toast('Successfully added member', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        progress: undefined,
-      });
       resetForm();
     }
   };
@@ -94,9 +85,8 @@ const AddMember: React.FC = () => {
 
   return (
     <BaseLayout title="Add Member">
-      {error && <h3>{error}</h3>}
       {loading && <h3>Loading...</h3>}
-      {!loading && !error && (
+      {!loading && (
         <form onSubmit={onSubmitHandler}>
           <div className={styles.formGroup}>
             <label htmlFor="fullname">Full Name</label>
@@ -174,16 +164,7 @@ const AddMember: React.FC = () => {
           </div>
         </form>
       )}
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        pauseOnHover
-      />
+      <ToastContainer />
     </BaseLayout>
   );
 };

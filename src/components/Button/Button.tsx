@@ -1,7 +1,13 @@
 import styles from './Button.module.scss';
 
-const Button: React.FC = (props) => (
-  <button className={styles.button}>{props.children}</button>
+interface IButtonProps {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const Button: React.FC<IButtonProps> = ({ onClick, children }) => (
+  <button onClick={onClick} className={styles.button}>
+    {children}
+  </button>
 );
 
 export default Button;

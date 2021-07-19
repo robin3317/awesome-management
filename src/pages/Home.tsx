@@ -1,16 +1,23 @@
+import React from 'react';
+import { ToastContainer } from 'react-toastify';
 import BaseLayout from '../components/BaseLayout/BaseLayout';
 import Button from '../components/Button/Button';
+import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypeSelector';
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
   const { data, loading, error } = useTypedSelector((state) => state.member);
+  const { deleteMember } = useActions();
+
+  const onDeleteHandler: any = (memberId: string | number) => {
+    deleteMember(memberId);
+  };
 
   return (
     <BaseLayout className={styles.home} title="Home">
-      {error && <h3>{error}</h3>}
       {loading && <h3>Loading...</h3>}
-      {!loading && !error && (
+      {!loading && (
         <table className={styles.table}>
           <thead>
             <tr>
@@ -32,7 +39,9 @@ const Home: React.FC = () => {
                   <td>{member.phone}</td>
                   <td>
                     <Button>Edit</Button>&nbsp;
-                    <Button>Delete</Button>
+                    <Button onClick={() => onDeleteHandler(member.id)}>
+                      Delete
+                    </Button>
                   </td>
                 </tr>
               );
@@ -40,6 +49,7 @@ const Home: React.FC = () => {
           </tbody>
         </table>
       )}
+      <ToastContainer />
     </BaseLayout>
   );
 };

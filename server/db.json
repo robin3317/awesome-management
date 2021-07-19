@@ -1,31 +1,40 @@
 {
   "members": [
     {
-      "id": 1,
-      "name": "Member_1",
-      "username": "member1",
-      "email": "member1@mail.com",
-      "phone": "1234567",
-      "address": "member1 address",
-      "description": "member1 description"
+      "name": "Abdur Rahman Robin",
+      "username": "robin4java",
+      "email": "abdurrahmanrobin47@gmail.com",
+      "phone": "01777999896",
+      "address": "Dhanmondi, Dhaka",
+      "description": "A professional software developer, currently working with javascript stack",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Member_2",
-      "username": "member2",
-      "email": "member2@mail.com",
-      "phone": "1234567",
-      "address": "member2 address",
-      "description": "member2 description"
+      "name": "Robin Rahman",
+      "username": "robin99",
+      "email": "codeonces@gmail.com",
+      "phone": "983247",
+      "address": "Bhairabpur Uttar Para",
+      "description": "Robin Rahman Description",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Member_3",
-      "username": "member3",
-      "email": "member3@mail.com",
-      "phone": "1234567",
-      "address": "member3 address",
-      "description": "member3 description"
+      "name": "Robin Rahman",
+      "username": "robin99",
+      "email": "codeonces@gmail.com",
+      "phone": "01777444029",
+      "address": "Bhairabpur Uttar Para",
+      "description": "Robin Rahman Description",
+      "id": 5
+    },
+    {
+      "name": "Robin Rahman",
+      "username": "robin99",
+      "email": "robin48rahman@gmail.com",
+      "phone": "01777444029",
+      "address": "Bhairabpur Uttar Para",
+      "description": "Customer_1 description",
+      "id": 6
     }
   ]
 }

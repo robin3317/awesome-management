@@ -42,11 +42,24 @@ const memberReducer = (
         error: null,
       };
 
+    case ActionType.DELETE_MEMBER:
+      return {
+        ...state,
+        data: state.data.filter((data) => data.id !== action.payload),
+      };
+
     case ActionType.SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
+      };
+
+    case ActionType.ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
 
     default:
