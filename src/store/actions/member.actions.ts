@@ -6,8 +6,21 @@ interface SetCurrentMembersAction {
   payload: Array<IData>;
 }
 
+interface SetAddMemberAction {
+  type: ActionType.ADD_MEMBER;
+  payload: IData;
+}
+
 interface SetSuccessAction {
   type: ActionType.SUCCESS;
 }
 
-export type Action = SetCurrentMembersAction | SetSuccessAction;
+interface SetErrorAction {
+  type: ActionType.ERROR;
+}
+
+export type Action =
+  | SetCurrentMembersAction
+  | SetAddMemberAction
+  | SetSuccessAction
+  | SetErrorAction;

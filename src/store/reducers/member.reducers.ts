@@ -2,7 +2,7 @@ import { ActionType } from '../actions-type/member.actions-type';
 import { Action } from '../actions/member.actions';
 
 export interface IData {
-  id: number;
+  id?: number;
   name: string;
   username: string;
   email: string;
@@ -33,6 +33,13 @@ const memberReducer = (
         ...state,
         data: action.payload,
         loading: true,
+      };
+
+    case ActionType.ADD_MEMBER:
+      return {
+        data: [...state.data, action.payload],
+        loading: true,
+        error: null,
       };
 
     case ActionType.SUCCESS:
