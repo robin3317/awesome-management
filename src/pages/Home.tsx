@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import BaseLayout from '../components/BaseLayout/BaseLayout';
 import Button from '../components/Button/Button';
@@ -7,8 +8,9 @@ import { useTypedSelector } from '../hooks/useTypeSelector';
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
-  const { data, loading, error } = useTypedSelector((state) => state.member);
+  const { data, loading } = useTypedSelector((state) => state.member);
   const { deleteMember } = useActions();
+  const history = useHistory();
 
   const onDeleteHandler: any = (memberId: string | number) => {
     deleteMember(memberId);
@@ -38,7 +40,14 @@ const Home: React.FC = () => {
                   <td>{member.email}</td>
                   <td>{member.phone}</td>
                   <td>
-                    <Button>Edit</Button>&nbsp;
+                    <Button
+                      onClick={() => {
+                        history.push(`/edit/${member.id}`);
+                      }}
+                    >
+                      Edit
+                    </Button>
+                    &nbsp;
                     <Button onClick={() => onDeleteHandler(member.id)}>
                       Delete
                     </Button>

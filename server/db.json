@@ -13,28 +13,10 @@
       "name": "Robin Rahman",
       "username": "robin99",
       "email": "codeonces@gmail.com",
-      "phone": "983247",
-      "address": "Bhairabpur Uttar Para",
-      "description": "Robin Rahman Description",
-      "id": 2
-    },
-    {
-      "name": "Robin Rahman",
-      "username": "robin99",
-      "email": "codeonces@gmail.com",
       "phone": "01777444029",
       "address": "Bhairabpur Uttar Para",
       "description": "Robin Rahman Description",
       "id": 5
-    },
-    {
-      "name": "Robin Rahman",
-      "username": "robin99",
-      "email": "robin48rahman@gmail.com",
-      "phone": "01777444029",
-      "address": "Bhairabpur Uttar Para",
-      "description": "Customer_1 description",
-      "id": 6
     }
   ]
 }

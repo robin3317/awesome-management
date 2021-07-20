@@ -160,7 +160,7 @@ const AddMember: React.FC = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <input type="submit" />
+            <input className={styles.submitBtn} type="submit" />
           </div>
         </form>
       )}

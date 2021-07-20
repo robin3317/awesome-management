@@ -11,6 +11,11 @@ interface SetAddMemberAction {
   payload: IData;
 }
 
+interface SetEditMemberAction {
+  type: ActionType.EDIT_MEMBER;
+  payload: IData;
+}
+
 interface SetDeleteMemberAction {
   type: ActionType.DELETE_MEMBER;
   payload: number | string;
@@ -28,6 +33,7 @@ interface SetErrorAction {
 export type Action =
   | SetCurrentMembersAction
   | SetAddMemberAction
+  | SetEditMemberAction
   | SetDeleteMemberAction
   | SetSuccessAction
   | SetErrorAction;

@@ -18,15 +18,57 @@ export const setCurrentMembers = () => {
 
       // This setTimeout is just for development visualization
       // [TODO]: REMOVE setTimeout before production deployment
+      // setTimeout(() => {
+      dispatch({
+        type: ActionType.SUCCESS,
+      });
+      // }, 1000);
+    } catch (error) {
+      dispatch({
+        type: ActionType.ERROR,
+        payload: error.message,
+      });
+      toast(error.message, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+      });
+    }
+  };
+};
+
+export const addMember = (memberData: IData) => {
+  return async (dispatch: Dispatch<Action>) => {
+    try {
+      await axios.post('http://localhost:5000/members', memberData);
+
+      dispatch({
+        type: ActionType.ADD_MEMBER,
+        payload: memberData,
+      });
+
+      // This setTimeout is just for development visualization
+      // [TODO]: REMOVE setTimeout before production deployment
       setTimeout(() => {
         dispatch({
           type: ActionType.SUCCESS,
+        });
+        toast('Successfully added member', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
         });
       }, 1000);
     } catch (error) {
       dispatch({
         type: ActionType.ERROR,
-        payload: error.message,
+        payload: `${error.message}, Please refresh the page and try again!`,
       });
     }
   };
@@ -75,13 +117,13 @@ export const deleteMember = (memberId: number | string) => {
   };
 };
 
-export const addMember = (memberData: IData) => {
+export const editMember = (memberData: IData) => {
   return async (dispatch: Dispatch<Action>) => {
     try {
-      await axios.post('http://localhost:5000/members', memberData);
+      await axios.patch(`http://localhost:5000/${memberData.id}`, memberData);
 
       dispatch({
-        type: ActionType.ADD_MEMBER,
+        type: ActionType.EDIT_MEMBER,
         payload: memberData,
       });
 
@@ -91,7 +133,7 @@ export const addMember = (memberData: IData) => {
         dispatch({
           type: ActionType.SUCCESS,
         });
-        toast('Successfully added member', {
+        toast('Successfully edit member', {
           position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,

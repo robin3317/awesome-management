@@ -42,6 +42,16 @@ const memberReducer = (
         error: null,
       };
 
+    case ActionType.EDIT_MEMBER:
+      return {
+        data: [
+          ...state.data.filter((member) => member.id !== action.payload.id),
+          action.payload,
+        ],
+        loading: true,
+        error: null,
+      };
+
     case ActionType.DELETE_MEMBER:
       return {
         ...state,
